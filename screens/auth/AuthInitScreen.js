@@ -54,6 +54,7 @@ export default class Login extends React.Component{
                         button
                         light
                         type='instagram'
+                        onPress={()=>{ this.props.navigation.navigate('Home')}}
                         />
                     
                 </View>
@@ -69,6 +70,12 @@ export default class Login extends React.Component{
                         style={styles.bottomText}
                         onPress={()=>{this.props.navigation.navigate('ForgotPassword');}}>
                         <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Forgot password?</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight 
+                        underlayColor={'transparent'}
+                        style={styles.bottomText}
+                        onPress={()=>{this.props.navigation.navigate('Home');}}>
+                        <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Continue as Guest</Text>
                     </TouchableHighlight>
                 </View>
 

@@ -54,7 +54,7 @@ export default class Login extends React.Component{
                         style={styles.submitContainer}
                         title='Sign In With Email'
                         button
-                        raised={this.state.google}
+                        raised
                         type='envelope'
                         onPress={ () => { this.props.navigation.navigate('SignInEmail'); } }
                         />

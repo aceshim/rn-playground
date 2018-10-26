@@ -10,10 +10,9 @@ import {
     TextInput,
     TouchableOpacity,
     Alert,
-    Button,
     ActivityIndicator,
 } from 'react-native';
-import { SocialIcon, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+import { SocialIcon, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import Modal from 'react-native-modal'
 
 
@@ -67,11 +66,15 @@ export default class Login extends React.Component{
                     <Text style={{fontFamily: 'montserrat-bold', fontSize: 14, color: '#283655'}}>Go Back</Text>
                 </TouchableHighlight>
                 <Modal isVisible={this.state.isModalVisible} style={styles.modalContainer}>
-                    <View>
-                        <Text>Must work!</Text>
-                        <TouchableOpacity onPress={this._hideModal}>
-                            <Text>Hide Modal</Text>
-                        </TouchableOpacity>
+                    <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+                        <Button
+                            raised
+                            borderRadius={30}
+                            backgroundColor={'#88d8b0'}
+                            containerViewStyle={{borderRadius: 30, width: 250}}
+                            leftIcon={{name: 'check', fontSize: 20}}
+                            title='Okay, Got it.' 
+                            onPress={ this._hideModal }/>
                     </View>
                 </Modal>
             </KeyboardAvoidingView>
@@ -126,6 +129,7 @@ const styles = StyleSheet.create({
     },
     modalContainer: {
         flex: 0.3,
+        top: 500,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',

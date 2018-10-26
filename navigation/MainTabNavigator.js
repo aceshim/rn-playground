@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import CartScreen from '../screens/CartScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -20,6 +21,21 @@ HomeStack.navigationOptions = {
         Platform.OS === 'ios'
           ? `ios-information-circle${focused ? '' : '-outline'}`
           : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+const CartStack = createStackNavigator({
+  Cart: CartScreen,
+});
+
+CartStack.navigationOptions = {
+  tabBarLabel: 'Cart',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={`ios-cart`
       }
     />
   ),
@@ -55,6 +71,7 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
+  CartStack,
   LinksStack,
   SettingsStack,
 });

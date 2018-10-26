@@ -34,28 +34,28 @@ export default class Login extends React.Component{
                 <View style={styles.socialButtonContainer}>
                      <SocialIcon
                         style={[styles.socialButton, {backgroundColor: '#fe8a71'}]}
-                        title='Sign In With Email'
+                        title='Sign Up With Email'
                         button
                         raised={this.state.google}
                         type='envelope'
                         />
                     <SocialIcon
                         style={styles.socialButton}
-                        title='Sign In With Github'
+                        title='Sign Up With Github'
                         button
                         raised={this.state.google}
                         type='github'
                         />
                     <SocialIcon
                         style={styles.socialButton}
-                        title='Sign In With LinkedIn'
+                        title='Sign Up With LinkedIn'
                         button
                         raised={this.state.google}
                         type='linkedin'
                         />
                     <SocialIcon
                         style={styles.socialButton}
-                        title='Sign In With Facebook'
+                        title='Sign Up With Facebook'
                         button
                         raised={this.state.facebook}
                         type='facebook'
@@ -63,7 +63,7 @@ export default class Login extends React.Component{
                         />
                     <SocialIcon
                         style={styles.socialButton}
-                        title='Sign In With Instagram'
+                        title='Sign Up With Instagram'
                         button
                         raised={this.state.instagram}
                         light

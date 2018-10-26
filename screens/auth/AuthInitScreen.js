@@ -42,6 +42,7 @@ export default class Login extends React.Component{
                         button
                         raised={this.state.google}
                         type='envelope'
+                        onPress={ () => { this.props.navigation.navigate('SignInEmail'); } }
                         />
                     <SocialIcon
                         style={styles.socialButton}
@@ -75,13 +76,13 @@ export default class Login extends React.Component{
                     <TouchableHighlight 
                         underlayColor={'transparent'}
                         style={styles.bottomText}
-                        onPress={()=>this.onSignUpPress()}>
+                        onPress={()=>{this.props.navigation.navigate('SignUp');}}>
                         <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Sign up for an account</Text>
                     </TouchableHighlight>
                     <TouchableHighlight 
                         underlayColor={'transparent'}
                         style={styles.bottomText}
-                        onPress={()=>this.onSignUpPress()}>
+                        onPress={()=>{this.props.navigation.navigate('SignUp');}}>
                         <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Forgot password?</Text>
                     </TouchableHighlight>
                 </View>

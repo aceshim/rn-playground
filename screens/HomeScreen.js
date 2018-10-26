@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Button, Text, Platform, TouchableHighlight, SafeAreaView, ScrollView} from 'react-native';
-
+import { View, Button, Text, Platform, TouchableHighlight, SafeAreaView, ScrollView} from 'react-native';
+import {Header} from 'react-native-elements';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import { MonoText } from '../components/StyledText';
+import Swiper from 'react-native-swiper';
 
 // const styles = {
 //   container: {
@@ -12,6 +13,24 @@ import { MonoText } from '../components/StyledText';
 //     justifyContent: 'center'
 //   },
 // }
+const recipe = {
+  0: {
+    name: 'Pasta Carbonara',
+    image: '../assets/images/recipe-1.jpg',
+  },
+  1: {
+    name: 'Hearty pasta soup',
+    image: '../assets/images/recipe-2.jpg',
+  },
+  2: {
+    name: 'Bacon & mushroom pasta',
+    image: '../assets/images/recipe-3.jpg',
+  },
+  3: {
+    name: 'Chunky sausage & tomato pasta',
+    image: '../assets/images/recipe-4.jpg',
+  },
+}
 
 export default class Home extends React.Component {
   state = {
@@ -38,7 +57,32 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <Header
+                outerContainerStyles={{backgroundColor: 'white'}}
+                leftComponent={{ icon: 'arrow-back', color: 'black' }}
+                centerComponent={{ text: 'Home', style: { color: 'black', fontSize: 20, fontWeight: 'bold' } }}
+                rightComponent={{ icon: 'help', color: 'black' }}
+                />
+        <Swiper 
+          containerStyle={styles.wrapper} 
+          showsButtons={false}
+          loop={true}
+          autoplay={true}
+          >
+          <View style={styles.slide1}>
+            <Text style={styles.text}>Hello Swiper</Text>
+          </View>
+          <View style={styles.slide2}>
+            <Text style={styles.text}>Beautiful</Text>
+          </View>
+          <View style={styles.slide3}>
+            <Text style={styles.text}>And simple</Text>
+          </View>
+        </Swiper>
+        <View style={{flex:2,}}>
+
+        </View>
         <SlidingUpPanel
           visible={this.state.visible}
           draggable={{bottom: 700}}
@@ -53,20 +97,46 @@ export default class Home extends React.Component {
             </ScrollView>
           </SafeAreaView>
         </SlidingUpPanel>
-        {this.state.visible?null:<TouchableHighlight style={styles.tabBarInfoContainer} onPress={() => this.enableDirection()}>
+        {/* {this.state.visible?null:<TouchableHighlight style={styles.tabBarInfoContainer} onPress={() => this.enableDirection()}>
           <View style={styles.tabBarInfoContainer}>
             <Text>Now Cooking</Text>
             <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
               <MonoText style={styles.codeHighlightText}>Pasta Carbonara</MonoText>
             </View>
           </View>
-        </TouchableHighlight>}
-      </View>
+        </TouchableHighlight>} */}
+      </SafeAreaView>
     )
   }
 }
 
 const styles = {
+  wrapper: {
+    flex: 1,
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
   slideViewContainer: {
     backgroundColor: 'white',
     flex: 1,
@@ -85,8 +155,6 @@ const styles = {
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   developmentModeText: {
     marginBottom: 20,

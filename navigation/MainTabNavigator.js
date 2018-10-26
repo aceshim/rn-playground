@@ -7,6 +7,27 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import CartScreen from '../screens/CartScreen';
+import LoginScreen from '../screens/LoginScreen';
+import LoginEmailScreen from '../screens/LoginEmailScreen';
+
+const LoginStack = createStackNavigator({
+  Login: LoginScreen,
+  LoginEmail: LoginEmailScreen,
+});
+
+LoginStack.navigationOptions = {
+  tabBarLabel: 'Login',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-settings${focused ? '' : '-outline'}`
+          : 'md-settings'
+      }
+    />
+  ),
+};
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -70,6 +91,7 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
+  LoginStack,
   HomeStack,
   CartStack,
   LinksStack,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import { SocialIcon } from 'react-native-elements';
 
 
@@ -19,11 +19,9 @@ export default class Login extends React.Component{
     }
 
     onFacebookPress(){
-        this.props.navigation.navigate('LoginEmail');
-    }
-
-    onSignInPress(){
-        this.props.navigation.navigate('SignIn');
+        this.setState({
+            facebook: false,
+        })
     }
 
     render(){
@@ -33,30 +31,31 @@ export default class Login extends React.Component{
                     {/* <Image source={require('../assets/images/logo.png')} /> */}
                     <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 70, color: '#283655'}}>ZIPBOB</Text>
                 </View>
-                <View style={styles.socialText}>
-                    <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 18, color: '#283655'}}>Sign Up With</Text>
-                </View>
                 <View style={styles.socialButtonContainer}>
                      <SocialIcon
                         style={[styles.socialButton, {backgroundColor: '#fe8a71'}]}
+                        title='Sign In With Email'
                         button
                         raised={this.state.google}
                         type='envelope'
                         />
                     <SocialIcon
                         style={styles.socialButton}
+                        title='Sign In With Github'
                         button
                         raised={this.state.google}
                         type='github'
                         />
                     <SocialIcon
                         style={styles.socialButton}
+                        title='Sign In With LinkedIn'
                         button
                         raised={this.state.google}
                         type='linkedin'
                         />
                     <SocialIcon
                         style={styles.socialButton}
+                        title='Sign In With Facebook'
                         button
                         raised={this.state.facebook}
                         type='facebook'
@@ -64,17 +63,14 @@ export default class Login extends React.Component{
                         />
                     <SocialIcon
                         style={styles.socialButton}
+                        title='Sign In With Instagram'
                         button
                         raised={this.state.instagram}
                         light
                         type='instagram'
                         />
-                    
                 </View>
-                <TouchableHighlight style={styles.bottomText}
-                    onPress={()=>this.onSignInPress()}>
-                    <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 14, color: '#283655'}}>Already have an account?</Text>
-                </TouchableHighlight>
+                
             </SafeAreaView>
         )
     }
@@ -84,32 +80,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     socialButton: {
-        margin: 8,
-        width: 52
-    },
-    logoContainer: {
-        flex: 4,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    socialText: {
-        flex: 2,
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
+        width: 300,
+        margin: 5,
     },
     socialButtonContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 2,
     },
-    bottomText: {
-        flex: 1,
-        flexDirection: 'row',
+    logoContainer: {
+        flex: 2,
         alignItems: 'center',
         justifyContent: 'center',
-    },
+    }
 })

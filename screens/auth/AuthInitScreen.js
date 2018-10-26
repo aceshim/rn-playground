@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Text, View, TouchableHighlight } from 'react-native';
-import { SocialIcon } from 'react-native-elements';
+import { SocialIcon, Divider } from 'react-native-elements';
 
 
 export default class Login extends React.Component{
@@ -22,8 +22,8 @@ export default class Login extends React.Component{
         this.props.navigation.navigate('LoginEmail');
     }
 
-    onSignInPress(){
-        this.props.navigation.navigate('SignIn');
+    onSignUpPress(){
+        this.props.navigation.navigate('SignUp');
     }
 
     render(){
@@ -34,7 +34,7 @@ export default class Login extends React.Component{
                     <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 70, color: '#283655'}}>ZIPBOB</Text>
                 </View>
                 <View style={styles.socialText}>
-                    <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 18, color: '#283655'}}>Sign Up With</Text>
+                    <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 18, color: '#283655'}}>Sign In With</Text>
                 </View>
                 <View style={styles.socialButtonContainer}>
                      <SocialIcon
@@ -71,10 +71,21 @@ export default class Login extends React.Component{
                         />
                     
                 </View>
-                <TouchableHighlight style={styles.bottomText}
-                    onPress={()=>this.onSignInPress()}>
-                    <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 14, color: '#283655'}}>Already have an account?</Text>
-                </TouchableHighlight>
+                <View style={styles.bottomTextContainer}>
+                    <TouchableHighlight 
+                        underlayColor={'transparent'}
+                        style={styles.bottomText}
+                        onPress={()=>this.onSignUpPress()}>
+                        <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Sign up for an account</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight 
+                        underlayColor={'transparent'}
+                        style={styles.bottomText}
+                        onPress={()=>this.onSignUpPress()}>
+                        <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Forgot password?</Text>
+                    </TouchableHighlight>
+                </View>
+
             </SafeAreaView>
         )
     }
@@ -90,12 +101,12 @@ const styles = StyleSheet.create({
         width: 52
     },
     logoContainer: {
-        flex: 4,
+        flex: 3,
         alignItems: 'center',
         justifyContent: 'center',
     },
     socialText: {
-        flex: 2,
+        flex: 1,
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'center',
@@ -106,10 +117,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    bottomText: {
+    bottomTextContainer: {
         flex: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
+    bottomText: {
+        margin: 10,
+    }
 })

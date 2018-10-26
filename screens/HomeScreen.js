@@ -40,6 +40,8 @@ export default class Home extends React.Component {
     header: null,
   };
 
+  
+
   enableDirection(){
     this.props.navigation.setParams({ 
       header: null 
@@ -80,7 +82,7 @@ export default class Home extends React.Component {
             <Text style={styles.text}>And simple</Text>
           </View>
         </Swiper>
-        <View style={{flex:2,}}>
+        <View style={{flex:2  ,}}>
 
         </View>
         <SlidingUpPanel

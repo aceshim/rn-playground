@@ -10,16 +10,6 @@ export default class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            facebook: true,
-            instagram: true,
-            google: true,
-        }
-        this.onFacebookPress = this.onFacebookPress.bind(this);
-    }
-
-    onFacebookPress(){
-        this.props.navigation.navigate('LoginEmail');
     }
 
     onSignUpPress(){
@@ -40,33 +30,28 @@ export default class Login extends React.Component{
                      <SocialIcon
                         style={[styles.socialButton, {backgroundColor: '#fe8a71'}]}
                         button
-                        raised={this.state.google}
                         type='envelope'
                         onPress={ () => { this.props.navigation.navigate('SignInEmail'); } }
                         />
                     <SocialIcon
                         style={styles.socialButton}
                         button
-                        raised={this.state.google}
                         type='github'
                         />
                     <SocialIcon
                         style={styles.socialButton}
                         button
-                        raised={this.state.google}
                         type='linkedin'
                         />
                     <SocialIcon
                         style={styles.socialButton}
                         button
-                        raised={this.state.facebook}
                         type='facebook'
                         onPress={()=>this.onFacebookPress()}
                         />
                     <SocialIcon
                         style={styles.socialButton}
                         button
-                        raised={this.state.instagram}
                         light
                         type='instagram'
                         />
@@ -82,7 +67,7 @@ export default class Login extends React.Component{
                     <TouchableHighlight 
                         underlayColor={'transparent'}
                         style={styles.bottomText}
-                        onPress={()=>{this.props.navigation.navigate('SignUp');}}>
+                        onPress={()=>{this.props.navigation.navigate('ForgotPassword');}}>
                         <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#283655'}}>Forgot password?</Text>
                     </TouchableHighlight>
                 </View>

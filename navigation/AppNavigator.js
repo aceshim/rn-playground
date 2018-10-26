@@ -13,6 +13,7 @@ import MainTabNavigator from './MainTabNavigator';
 import AuthInitScreen from '../screens/auth/AuthInitScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import SignInEmailScreen from '../screens/auth/SignInEmailScreen';
+import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 class AuthLoadingScreen extends React.Component {
   constructor() {
@@ -53,6 +54,7 @@ const AuthStack = createStackNavigator({
   AuthInit: AuthInitScreen, 
   SignUp: SignUpScreen, 
   SignInEmail: SignInEmailScreen,
+  ForgotPassword: ForgotPasswordScreen,
 });
 
 export default createSwitchNavigator(

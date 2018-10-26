@@ -23,12 +23,6 @@ export default class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {
-            facebook: true,
-            instagram: true,
-            google: true,
-        }
-        this.onFacebookPress = this.onFacebookPress.bind(this);
     }
 
     onFacebookPress(){

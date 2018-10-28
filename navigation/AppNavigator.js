@@ -6,8 +6,10 @@ import {
   StatusBar,
   StyleSheet,
   View,
+  ImageBackground
 } from 'react-native';
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { LinearGradient } from 'expo';
 
 import MainTabNavigator from './MainTabNavigator';
 import AuthInitScreen from '../screens/auth/AuthInitScreen';
@@ -49,21 +51,22 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppStack = createStackNavigator({ Home: MainTabNavigator });
+const AppStack = MainTabNavigator;
 const AuthStack = createStackNavigator({ 
   AuthInit: AuthInitScreen, 
   SignUp: SignUpScreen, 
   SignInEmail: SignInEmailScreen,
   ForgotPassword: ForgotPasswordScreen,
-});
+  },
+);
 
 export default createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
-    App: AppStack,
+    App: MainTabNavigator,
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'AuthLoading',
+    initialRouteName: 'App',
   }
 );

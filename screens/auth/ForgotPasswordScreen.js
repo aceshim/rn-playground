@@ -67,6 +67,9 @@ export default class Login extends React.Component{
                 </TouchableHighlight>
                 <Modal isVisible={this.state.isModalVisible} style={styles.modalContainer}>
                     <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+                        <Text>
+                            If the email you entered matches our record, we will send you how to reset your password to the email address.
+                        </Text>
                         <Button
                             raised
                             borderRadius={30}

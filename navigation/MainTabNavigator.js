@@ -9,20 +9,21 @@ import SettingsScreen from '../screens/SettingsScreen';
 import CartScreen from '../screens/CartScreen';
 import LoginScreen from '../screens/LoginScreen';
 import LoginEmailScreen from '../screens/LoginEmailScreen';
+import FeatureScreen from '../screens/FeatureScreen';
 
 const LoginStack = createStackNavigator({
-  Login: LoginScreen,
+  Login: FeatureScreen,
   LoginEmail: LoginEmailScreen,
 });
 
 LoginStack.navigationOptions = {
-  tabBarLabel: 'Login',
+  tabBarLabel: 'Featured',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-settings${focused ? '' : '-outline'}`
+          ? `ios-star${focused ? '' : '-outline'}`
           : 'md-settings'
       }
     />
@@ -30,7 +31,7 @@ LoginStack.navigationOptions = {
 };
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: FeatureScreen,
 });
 
 HomeStack.navigationOptions = {
@@ -96,4 +97,29 @@ export default createBottomTabNavigator({
   CartStack,
   LinksStack,
   SettingsStack,
-});
+},
+{
+  tabBarOptions: {
+    showIcon: true,
+    showLabel: true,
+    lazyLoad: true,
+    // activeTintColor: 'tomato',
+    inactiveTintColor: 'gray',
+    style: {
+      // backgroundColor: '#222222',
+      // backgroundColor: '#f5f5f5',
+      backgroundColor: 'rgba(255,255,255,0)',
+      borderTopWidth: 0,
+      // position: 'absolute',
+      // left: 0,
+      // right: 0,
+      // bottom: 0,
+      // height: 50
+      paddingTop: 5
+    },
+    labelStyle: {
+      fontFamily: 'montserrat-regular'
+    }
+  }
+}
+);

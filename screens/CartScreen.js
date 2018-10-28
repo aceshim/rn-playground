@@ -3,6 +3,7 @@ import { View, Text, TouchableHighlight, Separator, ScrollView, SafeAreaView } f
 import { Header, List, ListItem, SearchBar } from 'react-native-elements'
 import Swipeout from 'react-native-swipeout';
 import Toast from '@rimiti/react-native-toastify';
+import { Vibratation } from 'expo';
 
 export default class Cart extends React.Component {
     static navigationOptions = {
@@ -39,7 +40,7 @@ export default class Cart extends React.Component {
             text: 'Check',
             backgroundColor: 'green',
             // underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
-            onPress: () => { () => this.toastify.show('Check !', 1000) }
+            onPress: () => { () => Vibratation.vibrate(400); }
         }];
 
         const list = [

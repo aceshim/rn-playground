@@ -13,24 +13,24 @@ import Swiper from 'react-native-swiper';
 //     justifyContent: 'center'
 //   },
 // }
-const recipe = {
-  0: {
+const recipe = [
+  {
     name: 'Pasta Carbonara',
     image: '../assets/images/recipe-1.jpg',
   },
-  1: {
+  {
     name: 'Hearty pasta soup',
     image: '../assets/images/recipe-2.jpg',
   },
-  2: {
+  {
     name: 'Bacon & mushroom pasta',
     image: '../assets/images/recipe-3.jpg',
   },
-  3: {
+  {
     name: 'Chunky sausage & tomato pasta',
     image: '../assets/images/recipe-4.jpg',
   },
-}
+]
 
 export default class Home extends React.Component {
   state = {

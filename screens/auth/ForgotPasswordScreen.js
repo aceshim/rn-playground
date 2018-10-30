@@ -14,6 +14,10 @@ import {
 } from 'react-native';
 import { SocialIcon, FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import Modal from 'react-native-modal'
+import {
+    SCLAlert,
+    SCLAlertButton
+  } from 'react-native-scl-alert'
 
 
 export default class Login extends React.Component{
@@ -25,12 +29,26 @@ export default class Login extends React.Component{
         super(props);
         this.state = {
             isModalVisible: false,
+            showSCL: false,
         }
     }
 
     _showModal = () => this.setState({ isModalVisible: true })
     
     _hideModal = () => this.setState({ isModalVisible: false })
+
+    handleClose = () => {
+        this.setState({
+            showSCL: false,
+        })
+    }
+
+    handleOpen = () => {
+        this.setState({
+            showSCL: true,
+        })
+    }
+
 
     render(){
         return (
@@ -57,7 +75,7 @@ export default class Login extends React.Component{
                         button
                         raised={this.state.google}
                         type='reddit-alien'
-                        onPress={ this._showModal }
+                        onPress={ this.handleOpen }
                         />
                 <TouchableHighlight 
                     underlayColor={'transparent'}
@@ -80,6 +98,17 @@ export default class Login extends React.Component{
                             onPress={ this._hideModal }/>
                     </View>
                 </Modal>
+                <SCLAlert
+                    theme="success"
+                    show={this.state.showSCL}
+                    title="Email has been sent!"
+                    subtitle="If the email you entered matches our record, we will send you how to reset your password to the email address.
+                    "
+                    subtitleStyle={{fontSize: 10}}
+                    onRequestClose={this.handleClose}
+                    >
+                    <SCLAlertButton theme="success" onPress={this.handleClose}>Done</SCLAlertButton>
+                </SCLAlert>
             </KeyboardAvoidingView>
         )
     }

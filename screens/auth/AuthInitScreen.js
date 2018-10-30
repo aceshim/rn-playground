@@ -4,6 +4,10 @@ import { SocialIcon, Divider } from 'react-native-elements';
 import { LinearGradient,  } from 'expo';
 
 import Background from './Background'
+import {
+    SCLAlert,
+    SCLAlertButton
+  } from 'react-native-scl-alert'
 
 
 
@@ -16,8 +20,22 @@ export default class Login extends React.Component{
         super(props);
         this.state = {
             SignIn: true,
+            showSCL: true,
         }
     }
+
+    handleClose(){
+        this.setState({
+            showSCl:false
+        })
+    }
+
+    handleOpen(){
+        this.setState({
+            showSCl:true
+        })
+    }
+    
 
     onSignUpPress(){
         this.props.navigation.navigate('SignUp');
@@ -28,7 +46,6 @@ export default class Login extends React.Component{
             return (
                 <View>
                     <View style={styles.logoContainer}>
-                        {/* <Image style={{width: 300, height: 100}} source={require('../../assets/images/frontLogo.png')} /> */}
                         <Text style={{fontFamily: 'montserrat-bold', fontWeight: '300', fontSize: 70, color: '#fff'}}>ZIPBOB</Text>
                     </View>
                     <View style={styles.socialText}>
@@ -67,7 +84,23 @@ export default class Login extends React.Component{
                             onPress={()=>{this.props.navigation.navigate('Home');}}>
                             <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#fff'}}>Continue as Guest</Text>
                         </TouchableHighlight>
+
+                        <TouchableHighlight 
+                            underlayColor={'transparent'}
+                            style={styles.bottomText}
+                            onPress={()=>{this.props.navigation.navigate('ForgotPassword');}}>
+                            <Text style={{fontFamily: 'montserrat-regular', fontSize: 14, color: '#fff'}}>Forgot Password?</Text>
+                        </TouchableHighlight>
                     </View>
+                    <SCLAlert
+                        theme="info"
+                        show={this.state.show}
+                        title="Lorem"
+                        subtitle="Lorem ipsum dolor"
+                        onRequestClose={this.handleClose}
+                        >
+                        <SCLAlertButton theme="info" onPress={this.handleClose}>Done</SCLAlertButton>
+                    </SCLAlert>
                 </View>
             )
         }
@@ -97,7 +130,7 @@ export default class Login extends React.Component{
                             title='Sign Up With Facebook'
                             button
                             type='facebook'
-                            onPress={()=>this.onFacebookPress()}
+                            onPress={()=>this.handleOpen}
                             />
                     </View>
                     <TouchableHighlight 
